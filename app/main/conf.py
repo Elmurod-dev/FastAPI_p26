@@ -1,10 +1,8 @@
 from typing import Annotated
-
 from fastapi import FastAPI, Depends
 from sqlmodel import Session
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
-
 from db.models import engine
 
 app = FastAPI()

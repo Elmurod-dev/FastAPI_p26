@@ -5,7 +5,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from starlette_admin.contrib.sqla import Admin, ModelView
 
 from app.admin.provider import UsernameAndPasswordProvider
-from db.models import engine, User
+from db.models import engine, User, Job
 
 app = Starlette()
 
@@ -18,6 +18,7 @@ admin = Admin(engine=engine,
 class AllModelView(ModelView):
     exclude_fields_from_create = ["created_at" , 'updated_at']
 admin.add_view(AllModelView(User))
+admin.add_view(AllModelView(Job))
 
 admin.mount_to(app)
 
